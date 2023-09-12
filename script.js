@@ -5,7 +5,8 @@ let playerSelection;
 let howManyRounds;
 
 function getComputerChoice(){
-    let randomNumber = Math.floor(Math.random()*3);
+    // get random number from 3 choices
+    let randomNumber = Math.floor(Math.random()*3); // 0,1,2
     if (randomNumber === 0){
         computerChoice = "ROCK"
     }else if (randomNumber === 1) {
@@ -15,7 +16,7 @@ function getComputerChoice(){
     }
     return computerChoice;
 }
-
+// play a new game 
 function newGame(){
     playerScore = 0;
     computerScore = 0;
@@ -30,6 +31,36 @@ function newGame(){
     return howManyRounds;
 }
 
+// check for a winner 
+function checkWinConditions(){
+    if (
+        // match win conditions
+        (round == howManyRounds 
+            && (playerScore + computerScore == howManyRounds) 
+            && playerScore > computerScore) 
+        || playerScore == 1+(howManyRounds-1)/2
+            ){
+        console.log("Congratulations, you Win!");
+        round = 1;
+
+    }else if (
+        // match lose conditions
+        (round == howManyRounds 
+            && playerScore + computerScore == howManyRounds 
+            && computerScore > playerScore) 
+        || computerScore == 1+(howManyRounds-1)/2
+        ){
+        console.log("Sorry, you've Lost!")
+        round = 1;
+    }else {
+        // match continue 
+        console.log ('Next Round!')
+    }
+}
+
+
+
+// play round of rock paper scissors 
 function rps(){
     // get player input 
     playerSelection = document.getElementById("playerSelection").value;
@@ -60,30 +91,7 @@ function rps(){
             console.log(`You Lose! You chose ${playerSelection} while the computer chose ${computerChoice}`);
     }
 
-    if (
-        // match win conditions
-        (round == howManyRounds 
-            && (playerScore + computerScore == howManyRounds) 
-            && playerScore > computerScore) 
-        || playerScore == 1+((howManyRounds-1)/2)
-            ){
-        console.log("Congratulations, you Win!");
-        round = 1;
-
-    }else if (
-        // match lose conditions
-        (round == howManyRounds 
-            && (playerScore + computerScore == howManyRounds) 
-            && computerScore > playerScore) 
-        || computerScore == 1+((howManyRounds-1)/2) + 1
-        )
-        {
-        console.log("Sorry, you've Lost!")
-        round = 1;
-    }else {
-        // match continue 
-        console.log ('Next Round!')
-    }
+    checkWinConditions()
     
 }
 
