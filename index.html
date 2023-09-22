@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ro Sham Bo</title>
+    <link rel="style.css">
 </head>
 <body>
     <h2>Ro Sham Bo</h2>
@@ -11,14 +12,30 @@
         Rounds <input type="number" id="numberOfRounds">
         <button onclick="newGame()">New Game</button>
     </div>
+    
+    
     <br>
+    <!-- selection buttons -->
     <div>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+    <!-- <div>
         Choose Your Weapon:
         <input type="text" id="playerSelection">
-    </div>
+     </div>  --> <!--when we did player selection by input  -->
     <br>
+
+    <div class="scoreboard">
+        <div>Player Score: <span id="playerViewScore"></span></div>
+        <div>Computer Score: <span id="computerViewScore"></span></div>
+    </div>
     
-    <button onclick="match()">Select Weapon</button>
+    <!-- <button onclick="match()">Select Weapon</button> -->
+    <!-- <button id="clearButton">Clear</button> -->
+    <div id="scoreLog"></div>
     
     <script src = "script.js"></script>
     </script>
