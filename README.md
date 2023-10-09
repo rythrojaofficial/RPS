@@ -1,2 +1,4 @@
 # RPS
-Rock Paper Scissors TOP
+Rock Paper Scissors project created using html and javascript
+
+[live demo](https://rythrojaofficial.github.io/RPS/)
